@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/tiles/layouts/layout.jsp">
+		<put-attribute name="title" value=""/>
+		<put-attribute name="header" value="/WEB-INF/views/tiles/template/header.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/tiles/template/menu.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/template/footer.jsp"/>
+	</definition>
+	
+	<definition name="newslist" extends="base.definition">
+		<put-attribute name="title" value="News List"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/newslist.jsp"/>
+	</definition>
+	
+	<definition name="createnews" extends="base.definition">
+		<put-attribute name="title" value="Add News"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/createnews.jsp"/>
+	</definition>
+	
+	<definition name="editnews" extends="base.definition">
+		<put-attribute name="title" value="Edit News"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/editnews.jsp"/>
+	</definition>
+	
+	<definition name="newsview" extends="base.definition">
+		<put-attribute name="title" value="News View"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/newsview.jsp"/>
+	</definition>
+	
+	<definition name="modifynews" extends="base.definition">
+		<put-attribute name="title" value="Modify View"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/modifynews.jsp"/>
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,173 @@
+body {
+	margin: 0;
+}
+
+.article {
+	list-style-type: none;
+	margin: 10px 50px 50px 10px;  
+}
+
+.article__date {
+	float: right;
+	margin-right: 20px; 
+	text-decoration: underline;
+}
+
+.article__checkbox {
+	vertical-align: bottom;
+}
+
+.article__title {
+	width: calc(100vw - 500px); 
+	display: block;
+	font-weight: bold;
+	text-align: justify;
+}
+
+.article__management {
+	float: right;
+}
+
+.article__management > a {
+	text-decoration: none;
+	margin: 1px 5px 1px 5px;
+}
+
+
+.article__brief {
+	width: calc(100vw - 500px);
+	margin-top: 10px;
+	text-align: justify;
+} 
+
+#header {
+	height: 80px;
+	padding: 10px; 
+	border-bottom: 2px solid black;
+}
+
+.header__title {
+	margin-left: 20px; 
+	margin-top: 30px;
+}
+
+.header__language {
+	float: right;
+	margin-right: 10px; 
+	margin-top: -20px;
+}
+
+.header__language > a {
+	margin: 5px;
+}
+
+#sidemenu {
+	float: left;
+	width: 200px;
+	margin: 10px 10px 20px 10px;
+	padding: 0;
+	background: lightgrey; 
+}
+
+.menu__title {
+	margin: 10px 0 0 5px;
+	padding: 5px;
+	text-align: center;
+	background: gray;
+	color: white; 
+}
+
+.menu__link {
+	margin: 5px 5px 20px 40px;   
+	padding: 5px 20px 30px 10px;
+	background: white;	
+	text-align: center;
+}
+
+.menu__link > li {
+	list-style-type: circle;
+	margin: 5px 0 0 40px;
+	text-align: left; 
+}
+
+#site-content {
+	min-height: calc(100vh - 160px);      
+	min-width: 300px;
+	width: calc(100vw - 260px);
+	margin: 10px 5px 5px 220px;
+	padding: 5px;
+	border: 2px solid lightgrey;
+}
+
+.form, .view {
+	margin: 10px 50px 50px 10px; 
+} 
+
+.form__field, .view__field {
+	height: 30px; 	
+	text-align: justify;
+}
+
+.form__label, .view__label {
+	vertical-align: top;
+	color: lightgrey;
+	padding-right: 30px;
+	width: 85px; 
+}
+
+.form-field__title, .form-field__brief, .form-field__content,
+	.view__data {  
+	min-width: 150px;
+	width: calc(100vw - 450px);
+	max-width: calc(100vw - 450px);    
+}
+
+.form_field__brief {
+	min-height: 300px; 
+}
+
+.form-field__date {
+	width: 150px;
+}
+
+.form__buttons {
+	margin-top: 10px; 
+	text-align: center;
+}
+ 
+.form__button, .view__button { 
+	padding: 3px 10px 3px 10px;
+	margin: 0 5px 0 5px 0;  
+}
+
+.view__buttons {
+	text-align: right;
+	margin: 10px 30px 0 0;
+} 
+
+.error {
+	color: red;
+}
+
+.page-name {
+	margin: 10px 0 0 20px;  
+}
+
+.page-name-base {
+	color: lightgrey;
+	text-decoration: underline; 
+} 
+
+.page-name-arrows {
+	color: lightgrey; 
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+#footer {
+	height: 5px; 
+	padding: 5px;
+	text-align: center;
+	border-top: 2px solid black;
+}
+
