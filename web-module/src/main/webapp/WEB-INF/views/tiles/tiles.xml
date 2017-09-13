@@ -16,16 +16,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/newslist.jsp"/>
 	</definition>
 	
-	<definition name="createnews" extends="base.definition">
-		<put-attribute name="title" value="Add News"/>
-		<put-attribute name="body" value="/WEB-INF/views/pages/createnews.jsp"/>
-	</definition>
-	
-	<definition name="editnews" extends="base.definition">
-		<put-attribute name="title" value="Edit News"/>
-		<put-attribute name="body" value="/WEB-INF/views/pages/editnews.jsp"/>
-	</definition>
-	
 	<definition name="newsview" extends="base.definition">
 		<put-attribute name="title" value="News View"/>
 		<put-attribute name="body" value="/WEB-INF/views/pages/newsview.jsp"/>

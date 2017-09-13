@@ -9,7 +9,7 @@ import by.htp.news.domain.model.Article;
 
 public class ArticleFormConvertDomain {
 	
-	private static final String DATE_FORMAT = "MM/dd/yyyy";
+	public static final String DATE_FORMAT = "MM/dd/yyyy";
 
 	public static ArticleForm fromActicle(Article article) {
 		ArticleForm articleForm = new ArticleForm();

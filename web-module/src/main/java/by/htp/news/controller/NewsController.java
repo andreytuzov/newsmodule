@@ -1,6 +1,9 @@
 package by.htp.news.controller;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +44,12 @@ public class NewsController {
 	
 	@GetMapping("/modify")
 	public String create(Model model) {
-		model.addAttribute("article", new ArticleForm());
+		ArticleForm articleForm = new ArticleForm();
+		// Set up current date
+		SimpleDateFormat format = new SimpleDateFormat(ArticleFormConvertDomain.DATE_FORMAT);
+		String currentDate = format.format(new Date());
+		articleForm.setDate(currentDate);
+		model.addAttribute("article", articleForm);
 		return "modifynews";
 	}
 	
