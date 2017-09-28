@@ -11,7 +11,11 @@ function visibleButton() {
 }
 
 $(document).ready(function() {
-	 visibleButton();
+	visibleButton();
+	 
+	$.ajaxSetup({
+		headers: {"X-CSRF-TOKEN" : $("meta[name='_csrf']").attr("content")}     
+	}); 
 });
 
 
@@ -24,21 +28,21 @@ function deleteListArticle() {
 	});
 	
 	if (data.length == 0) {
-		alert('Не выбрано не одной статьи');
-		return;
+		alert(messages["script.delete.empty"]);
+		return; 
 	} 
 	
 	data = data.substring(0, data.length - 1);
 	
-	var result = confirm('Вы уверены, что хотите выполнить удаление ?');
+	var result = confirm(messages["script.delete.confirm"]);
 	
 	if (result) {
 		$.ajax({
 			type: "post",
-			url: "/news/deletelist",
-			data: {stringIDs : data},
-			success: function(msg) {
-				alert(msg);
+			url: "/news/deletelist", 
+			data: {stringIDs : data},     
+			success: function() { 
+				alert(messages["script.delete.success"])
 				// Удаляем ранее выделенные checkbox
 				$('input:checkbox:checked').each(function() {
 					$(this).closest('li').remove();
@@ -46,7 +50,7 @@ function deleteListArticle() {
 				visibleButton();
 			},
 			error: function() {
-				alert("Ошибка при удалении")
+				alert(messages["script.delete.error"])
 			}
 		});
 	}
@@ -54,19 +58,19 @@ function deleteListArticle() {
 
 function deleteArticle(articleId) {
 	
-	var result = confirm('Вы уверены, что хотите удалить статью ?');
+	var result = confirm(messages["script.delete.confirm"]);
 	
 	if (result) {
 		$.ajax({
-			type: "post",
+			type: "post", 
 			url: "/news/delete",
 			data: {id : articleId},
-			success: function(msg) {
+			success: function() {
+				alert(messages["script.delete.success"]) 
 				location.href = '/news/list';
-				alert(msg);
 			},
 			error: function() {
-				alert("Ошибка при удалении статьи")
+				alert(messages["script.delete.error"])
 			}
 		});
 	}

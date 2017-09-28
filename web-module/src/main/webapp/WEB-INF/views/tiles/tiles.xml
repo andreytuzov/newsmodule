@@ -26,4 +26,17 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/modifynews.jsp"/>
 	</definition>
 	
+	<definition name="error" extends="base.definition">
+		<put-attribute name="title" value="Error"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/error.jsp"/>
+	</definition>
+	
+	<definition name="login" extends="base.definition">
+		<put-attribute name="title" value="Login"/>
+		<put-attribute name="body" value="/WEB-INF/views/pages/login.jsp"/>
+	</definition>
+	
+	<definition name="script" template="/WEB-INF/views/pages/script.jsp">
+	</definition>
+	
 </tiles-definitions>

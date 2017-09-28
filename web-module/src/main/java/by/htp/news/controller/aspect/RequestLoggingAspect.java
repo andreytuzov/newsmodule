@@ -34,5 +34,5 @@ public class RequestLoggingAspect {
 		String address = request.getRemoteAddr();
 		String method = request.getMethod();
 		logger.info("request: " + method + " '" + url + "', ip: " + address);
-	}				
+	}		
 }

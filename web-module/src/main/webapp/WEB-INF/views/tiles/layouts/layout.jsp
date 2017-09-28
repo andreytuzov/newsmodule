@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -7,9 +7,10 @@
 <head>
 	<title><tiles:getAsString name="title"/></title>
 	<link href="<c:url value='/static/css/app.css'/>" rel="stylesheet"></link>
+	<meta name="_csrf" content="${_csrf.token}"/>
 </head>
 
-<body>
+<body> 
 	<header id="header">
 		<tiles:insertAttribute name="header"/>
 	</header>
@@ -29,6 +30,6 @@
 	
 	<script src="<c:url value='/static/js/jquery-1.11.1.js'/>"></script>
 	<script src="<c:url value='/static/js/dynamic.js'/>"></script>
-		
+	<script src="<c:url value='/jsl10n.js'/>"></script>
 </body>	
 </html>
