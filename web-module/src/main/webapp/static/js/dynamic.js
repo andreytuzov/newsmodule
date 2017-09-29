@@ -19,7 +19,6 @@ $(document).ready(function() {
 });
 
 
-
 function deleteListArticle() {
 	// Собираем какие id выбраны
 	var data = '';
@@ -72,6 +71,29 @@ function deleteArticle(articleId) {
 			error: function() {
 				alert(messages["script.delete.error"])
 			}
+		});
+	}
+}
+
+
+function deleteComment(commentId, articleId) {
+	var result = confirm(messages["script.delete.confirm"]);
+	
+	if (result) {
+		$.ajax({
+			type: "post",
+			url: "/news/view/comments/delete",
+			data: {id : commentId, articleId: articleId},
+			success: function() {
+				$("div[data-id='" + commentId + "']").remove();
+				var count = $('.comments__count').text();
+				$('.comments__count').text(count - 1); 
+				alert(messages["script.delete.success"])
+			},
+			error: function() {
+				alert(messages["script.delete.error"])
+			}
+			
 		});
 	}
 }

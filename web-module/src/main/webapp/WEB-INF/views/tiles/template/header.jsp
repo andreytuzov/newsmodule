@@ -11,6 +11,7 @@
 			</span>  
 		</security:authorize> 
 		<security:authorize access="isAuthenticated()">
+			<span class="header__username"><security:authentication property="principal.username"/> | </span>
 			<form action="/news/logout" method="post" class="inline">  
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 				<button class="link-button"><spring:message code="prop.header.authentication.logout"/></button>

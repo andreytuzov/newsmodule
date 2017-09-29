@@ -2,6 +2,8 @@ package by.htp.news.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import by.htp.news.domain.model.Article;
 import by.htp.news.service.ArticleService;
 
 @Service
+@Transactional
 public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired

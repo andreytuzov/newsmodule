@@ -9,9 +9,18 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import by.htp.news.controller.resource.PropManager;
 
+/**
+ * Контроллер для обработки запросов на несуществующие адреса 
+ *
+ */
 @ControllerAdvice
 public class ExceptionController {
 	
+	/**
+	 * Обработка запросов на несуществующие адреса
+	 * @param model объект передачи параметров представлению
+	 * @return представление
+	 */
 	@ExceptionHandler(NoHandlerFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String handleError404(Model model) {

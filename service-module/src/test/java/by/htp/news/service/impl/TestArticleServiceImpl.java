@@ -3,6 +3,8 @@ package by.htp.news.service.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -21,8 +23,9 @@ public class TestArticleServiceImpl {
 	
 	@BeforeClass
 	public static void createArticleSession() {
-		context = new ClassPathXmlApplicationContext("classpath:service-module-context.xml");
-		articleService = context.getBean(ArticleServiceImpl.class);
+		BasicConfigurator.configure();
+		context = new ClassPathXmlApplicationContext("service-module-context.xml");
+		articleService = context.getBean(ArticleService.class);
 	}
 	
 	@AfterClass

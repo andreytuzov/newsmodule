@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+/**
+ * Аспект для логгирования вызова методов контроллера
+ *
+ */
 @Aspect
 @Component
 public class RequestLoggingAspect {
@@ -27,6 +31,9 @@ public class RequestLoggingAspect {
 	@Pointcut("forGetRequest() || forPostRequest()")
 	private void forAllRequest() {}
 	
+	/**
+	 * Совет для вывода метода, url и адреса с которого поступил запрос
+	 */
 	@Before("forAllRequest()")
 	public void requestLogging() {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();

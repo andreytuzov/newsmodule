@@ -103,6 +103,11 @@ body {
 	margin: 5px;
 }
 
+.header__username {
+	color: grey;
+	font-size: large; 
+}
+
 #sidemenu {
 	float: left;
 	width: 200px;
@@ -213,3 +218,47 @@ body {
 	border-top: 2px solid black;
 }
 
+.comments {
+	margin-top: 60px;
+	margin-left: 20px;
+	margin-right: 30px; 
+}
+
+.comments__count {
+	font-weight: 700;
+	background: #fde953;
+	padding: 5px 10px;
+	display: inline-block;
+	color: #333;
+	border: 1px solid #e7cf56;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	line-height: 28px;
+	border-radius: 5px;	 
+}
+
+.comments__item {
+	margin-top: 15px;
+	margin-bottom: 40px;  
+}
+
+.comments__user {
+	font-weight: bold;
+	font-size: medium;
+}
+
+.comments__date {
+	font-size: small;
+}
+
+.comments__text {
+	
+}
+
+hr {
+	color: grey;
+}
+
+.button-right {
+	float: right;
+}

@@ -1,12 +1,15 @@
 package by.htp.news.domain.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,9 +35,12 @@ public class Article {
 	@Column(name = "date")
 	private Date date;
 
+	@OneToMany(mappedBy = "article", fetch = FetchType.EAGER)
+	private List<Comment> comments;
+
 	public Article() {
 	}
-	
+
 	public Article(String title, String brief, String content, Date date) {
 		this.title = title;
 		this.brief = brief;
@@ -80,6 +86,14 @@ public class Article {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	@Override

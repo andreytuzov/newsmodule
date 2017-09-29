@@ -4,6 +4,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * Модель для взаимодействия с формой
+ *
+ */
 public class ArticleForm {
 	private int id;
 

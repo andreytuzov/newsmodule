@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<http use-expressions="true">  
-		<intercept-url pattern="/modify/**" access="hasRole('ROLE_ADMIN')"/>
-		<intercept-url pattern="/delete" access="hasRole('ROLE_ADMIN')" method="POST"/>
-		<intercept-url pattern="/deletelist" access="hasRole('ROLE_ADMIN')" method="POST"/>
-		<intercept-url pattern="/view/**" access="isAuthenticated()"/>
-		<intercept-url pattern="/login" access="isAnonymous()"/>
-		<form-login
-			login-page="/login"  
+
+	<http use-expressions="true">
+		<intercept-url pattern="/modify/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/delete" access="hasRole('ROLE_ADMIN')" method="POST" />
+		<intercept-url pattern="/deletelist" access="hasRole('ROLE_ADMIN')" method="POST" />
+		<intercept-url pattern="/view/comments/create" access="isAuthenticated()" />
+		<intercept-url pattern="/view/comments/delete" access="hasRole('ROLE_ADMIN')" method="POST" />		
+		<intercept-url pattern="/login" access="isAnonymous()" />
+		<form-login 
+			login-page="/login" 
 			login-processing-url="/login_process"
 			username-parameter="username" 
 			password-parameter="password"
-			authentication-failure-url="/login?error=e"/> 
-		<logout logout-success-url="/list"/>   
-		<csrf/> 
-	</http> 
-	
+			authentication-failure-url="/login?error=e" />
+		<logout logout-success-url="/list" />
+		<csrf />
+	</http>
+
+	<beans:bean id="shaPasswordEncoder"
+		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder" />
+
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-				<user name="user" password="user" authorities="ROLE_USER"/>
-			</user-service>
+			<password-encoder ref="shaPasswordEncoder" />
+			<jdbc-user-service 
+				data-source-ref="myDataSource" 
+				users-by-username-query="select username, password, TRUE from users where username=?"
+				authorities-by-username-query="select u.username, r.role from roles r, user_roles ur, users u where ur.user_id=u.id and ur.role_id=r.id and u.username=?" />
 		</authentication-provider>
 	</authentication-manager>
-		
+
 </beans:beans>

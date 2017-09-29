@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div>
 	<div class="page-name">
 		<span class="page-name-base"><spring:message code="prop.page.name.base"/></span> 
@@ -12,7 +13,7 @@
 		<c:forEach var="article" items="${articles}">
 			<li class="article" data-id="${article.id}">
 				<div>
-					<span class="article__date">${article.date}</span>
+					<span class="article__date"><fmt:formatDate pattern="MM/dd/yyyy" value="${article.date}"/></span> 
 					<span class="article__title">${article.title}</span> 
 				</div>
 				<div class="article__brief">${article.brief}</div>
