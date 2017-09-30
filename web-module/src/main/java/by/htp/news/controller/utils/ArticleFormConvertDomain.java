@@ -14,15 +14,16 @@ import by.htp.news.domain.model.Article;
  *
  */
 public class ArticleFormConvertDomain {
-	
+
 	private static Logger logger = Logger.getLogger(ArticleFormConvertDomain.class);
-	
+
 	public static final String DATE_FORMAT = "MM/dd/yyyy";
 
 	/**
 	 * Метод для получения модели формы из бизнес модели данных
 	 * 
-	 * @param article бизнес-модель данных
+	 * @param article
+	 *            бизнес-модель данных
 	 * @return модель формы
 	 */
 	public static ArticleForm fromActicle(Article article) {
@@ -31,23 +32,26 @@ public class ArticleFormConvertDomain {
 		articleForm.setTitle(article.getTitle());
 		articleForm.setBrief(article.getBrief());
 		articleForm.setContent(article.getContent());
-		
+
 		SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
 		String date = format.format(article.getDate());
 		articleForm.setDate(date);
-		
+
 		return articleForm;
 	}
 
 	/**
 	 * Метод для получения бизнес-модели данных из модели формы
 	 * 
-	 * @param articleForm бизнес-модель данных
+	 * @param articleForm
+	 *            бизнес-модель данных
 	 * @return модель формы
 	 */
 	public static Article toArticle(ArticleForm articleForm) {
 		Article article = new Article();
-		article.setId(articleForm.getId());
+		if (articleForm.getId() != 0) {
+			article.setId(articleForm.getId());
+		}
 		article.setTitle(articleForm.getTitle());
 		article.setBrief(articleForm.getBrief());
 		article.setContent(articleForm.getContent());

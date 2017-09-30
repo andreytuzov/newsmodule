@@ -24,7 +24,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
 	public List<Article> readAll() {
 		Session session = factory.getCurrentSession();
-		List<Article> articles = session.createQuery("FROM Article a ORDER BY a.date DESC", Article.class).list();
+		List<Article> articles = session.createNamedQuery("Article.findAll", Article.class).list();
 		return articles;
 	}
 

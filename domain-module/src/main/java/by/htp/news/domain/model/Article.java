@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,11 +18,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "articles")
+@NamedQueries({
+	@NamedQuery(name = "Article.findAll", query = "FROM Article a ORDER BY a.date DESC")
+})
 public class Article {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	@Column(name = "title")
 	private String title;
@@ -35,7 +40,7 @@ public class Article {
 	@Column(name = "date")
 	private Date date;
 
-	@OneToMany(mappedBy = "article", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "article", fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<Comment> comments;
 
 	public Article() {

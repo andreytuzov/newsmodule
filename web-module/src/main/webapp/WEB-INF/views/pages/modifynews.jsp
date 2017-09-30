@@ -7,7 +7,7 @@
 		<span class="page-name-arrows">>></span><spring:message code="prop.page.name.modify"/>
 	</div> 
 
-	<form:form class="form" action="/news/modify" method="post" modelAttribute="article">
+	<form:form class="form" action="/news/modify/${article.id}" method="post" modelAttribute="article">
 		<form:hidden path="id"/>
 		<table>
 			<tr>

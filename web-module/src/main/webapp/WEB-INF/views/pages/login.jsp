@@ -15,11 +15,11 @@
 			</tr>
 			<tr class="table__field">
 				<td class="form__label"><label for="username"><spring:message code="prop.form.label.username"/></label></td>
-				<td class="form__input"><input type="text" name="username" autofocus="autofocus"/></td> 
+				<td class="form__input"><input class="size-medium" type="text" name="username" autofocus="autofocus"/></td>  
 			</tr>
 			<tr class="table__field">
 				<td class="form__label"><label for="password"><spring:message code="prop.form.label.password"/></label></td>
-				<td class="form__input"><input type="password" name="password"/></td>
+				<td class="form__input"><input class="size-medium" type="password" name="password"/></td>
 			</tr>
 			<tr>     
 				<td></td>

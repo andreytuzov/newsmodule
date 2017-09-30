@@ -9,7 +9,7 @@
 		<intercept-url pattern="/modify/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/delete" access="hasRole('ROLE_ADMIN')" method="POST" />
 		<intercept-url pattern="/deletelist" access="hasRole('ROLE_ADMIN')" method="POST" />
-		<intercept-url pattern="/view/comments/create" access="isAuthenticated()" />
+		<intercept-url pattern="/view/**" access="isAuthenticated()" method="POST"/>
 		<intercept-url pattern="/view/comments/delete" access="hasRole('ROLE_ADMIN')" method="POST" />		
 		<intercept-url pattern="/login" access="isAnonymous()" />
 		<form-login 

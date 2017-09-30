@@ -5,7 +5,7 @@
 	<ul class="menu__link">
 		<li><a href="/news/list"><spring:message code="prop.menu.link.list"/></a></li>
 		<security:authorize access="hasRole('ROLE_ADMIN')">
-			<li><a href="/news/modify"><spring:message code="prop.menu.link.create"/></a></li>
+			<li><a href="/news/modify/0"><spring:message code="prop.menu.link.create"/></a></li>
 		</security:authorize>
 	</ul>
 </nav>

@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="page-name">
 	<span class="page-name-base"><spring:message code="prop.page.name.base"/></span> 
 	<span class="page-name-arrows">>></span><spring:message code="prop.page.name.view"/>
@@ -54,12 +55,12 @@
 		</c:forEach>
 		<security:authorize access="isAuthenticated()">
 			<div>
-				<form action="/news/view/comments/create" method="post">
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<input type="hidden" name="articleId" value="${article.id}"/>
-					<textarea name="text" rows="10" style="width: 100%; margin-bottom: 10px;" placeholder="<spring:message code="prop.comments.placeholder"/>"></textarea> 
+				<form:form action="/news/view/${article.id}" method="post" modelAttribute="commentForm">
+					<form:hidden path="articleId"/> 
+					<form:errors path="text" cssClass="error"/>
+					<form:textarea path="text" rows="10" style="width: 100%; margin: 10px 0 10px 0;"></form:textarea> 
 					<button><spring:message code="prop.comments.button"/></button>
-				</form>
+				</form:form>
 			</div>
 		</security:authorize>
 		<security:authorize access="isAnonymous()">

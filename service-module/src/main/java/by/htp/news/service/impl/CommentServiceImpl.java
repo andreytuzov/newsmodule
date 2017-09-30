@@ -1,7 +1,5 @@
 package by.htp.news.service.impl;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +15,6 @@ public class CommentServiceImpl implements CommentService {
 
 	@Autowired
 	private CommentDAO commentDAO;
-	
-	@Override
-	public List<Comment> readByArticleId(int id) {
-		return commentDAO.readByArticleId(id);
-	}
 
 	@Override
 	public void modify(Comment comment) {
